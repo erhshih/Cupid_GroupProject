@@ -1,0 +1,121 @@
+.cards_upload_aside_prev{ 
+
+        a{
+            display: flex;
+            align-items: center;
+            padding: 30px 30px 0;
+            text-decoration: none;
+            // border: 1px solid red;
+        }
+        
+        div{
+            padding: 5px;
+            // border: 1px solid red;
+        }
+
+        h2{
+            @include title_black();
+            // border: 1px solid red;
+        }
+    }
+
+.cards_reply_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px auto 40px;
+
+    h1{
+        @include title();
+    }
+}
+
+
+.cards_chart{
+    display: flex;
+    // position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 40px 100px;
+
+     .chart-container{
+        position: relative; 
+        height:10vh; 
+        width:40vw;
+    }
+}
+
+
+// section{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     margin: 0 40px 100px;
+// }
+
+// .cards_chart{
+
+//     div{
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+
+//         img{
+//             width: 60%;
+//             max-width: 1200px;
+//             // border: 1px solid red;
+//         }
+
+//     }    
+// }
+
+
+
+.cards_reply{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    overflow-x: auto;
+
+    .cards_reply_table{
+        
+
+        table, th, td{
+            border:1px solid $color_gray3;
+            border-collapse: collapse;
+    
+            white-space: nowrap;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+    
+            @include content_text();
+    
+          }
+    
+        table{
+            
+            margin-bottom: 60px;
+            // overflow-x: scroll;
+    
+            th{
+                padding: 10px; 
+                background-color: $color_gray2;
+                color: $color_white;
+                
+            }
+    
+            td{
+                padding: 5px;
+                width: 100px;
+                
+            }
+    
+        }
+    }
+    
+}
+

@@ -1,0 +1,55 @@
+$rwd-t: 767.98px;
+$rwd-m: 575.98px;
+
+/*顏色*/
+$color_red: rgba(147, 38, 57, 1); //主色
+$color_rice: rgba(255, 244, 227, 1); //輔色
+$color_gold: rgba(188, 129, 41, 1); //強調色
+
+$color_black: rgba(51, 51, 51, 1); //#333 深黑
+$color_gray1: rgba(102, 102, 102, 1); //文字次要色
+$color_gray2: rgba(153, 153, 153, 1); //文字次要色
+$color_gray3: rgba(196, 196, 196, 1); //表格底色
+
+$color_red_total: rgba(255, 0, 0, 1); //購物車小計紅
+$color_red_unclick: rgba(219, 186, 182, 1); //unclick紅色
+
+$color_white: white; //純白
+
+/*文字*/
+//大標語 fontSize_Title2
+$h1: 36px;
+//大標題 fontSize_Title1
+$h2: 24px;
+//副標題 fontSize_SubTitle
+$h3: 18px;
+//內文 fontSize_Content
+$h4: 14px;
+
+/*手機文字*/
+$moblie_h1: 34px; //大標語 fontSize_Title2
+$moblie_h2: 22px; //大標題 fontSize_Title1
+$moblie_h3: 16px; //副標題 fontSize_SubTitle
+$moblie_h4: 12px; //內文 fontSize_Content
+
+//font-weight: 400
+$w1: 400; //內文 normal
+$w2: 700; //大標題 medium
+
+/*手機粗細*/
+//font-weight: 400
+$moblie_w1: 400; //內文 normal
+$moblie_w2: 700; //大標題 medium
+
+//font-family
+$f1: "Noto Serif TC", serif; //明體
+$f2: "Roboto", sans-serif; //Roboto
+
+/*行高*/
+$l1: 100px;
+$l2: 50px;
+$l3: 35px;
+
+$moblie_l1: 100px;
+$moblie_l2: 50px;
+$moblie_l3: 30px;

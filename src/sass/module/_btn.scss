@@ -1,0 +1,85 @@
+
+//最多按紐 實心
+.btn_red{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $color_red ;
+    color: $color_white;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        background-color: $color_gold;    
+        color: $color_white;
+    }
+}
+//最多按紐 空心
+.btn_red_air{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $color_white ;
+    color: $color_red;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $color_red;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        border: 1px solid $color_gold;  
+        color: $color_gold;  
+    }
+}
+
+//最多按紐之二 實心
+.btn_red_small{
+    width: 98px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: $color_red ;
+    color: $color_white;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        background-color: $color_gold;    
+        color: $color_white;
+    }
+}
+
+//最多按紐之二 空心
+.btn_red_small_air{
+    width: 98px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: $color_white ;
+    color: $color_red;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $color_red;
+    display: inline-block;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        border: 1px solid $color_gold;  
+        color: $color_gold;
+    }
+}

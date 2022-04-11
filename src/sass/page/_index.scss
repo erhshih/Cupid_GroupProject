@@ -1,0 +1,710 @@
+.index{
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+
+/*首頁 banner*/
+.index_banner{
+  position: relative;
+  width: 100%;
+  padding-top: 80px;
+  // border: 1px solid red;
+
+  .index_banner_img{
+    position: relative;
+    display: block;
+    width: 90%;
+    height: auto;
+    font-size: 0;
+
+    @include m{
+      width: 100%;  
+    }
+
+    .index_overlay{
+      position: absolute; 
+      background: $color_black;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .3; 
+      z-index: 1;
+      
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      // border: 1px solid red;
+     
+    }
+  }
+  
+   
+
+  .index_title{
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    z-index: 2;
+
+    @include t{
+      left: 30px;
+      bottom: 25px;        
+    }
+
+    @include m{
+      left: 20px;
+      bottom: 10px;         
+    }
+  }
+
+  h1{
+    @include title_m_white();
+    
+    @include t{
+      font-size: $moblie_h1;
+      line-height: 75px;
+    }
+  
+  }
+
+  p{
+    @include subtitle_m_white();
+    @include t{
+      font-size: $moblie_h3;
+    }
+  }
+
+}
+
+
+
+.index_banner_flower{
+  display: block;
+  position: absolute;
+  right: -50px;
+  top: 20em;
+  z-index: 2;
+
+  // animation-name: example;
+  // animation-duration: 3s;
+
+    img{
+      width: 25vw;
+      height: auto;
+    }  
+      
+  }
+
+
+[data-aos="index-anim"] {
+  opacity: .3;
+  transform: scale(3);
+  transition-property: transform, opacity, transform;
+  
+    &.aos-animate {
+      opacity: 1;
+      transform: scale(1);
+      transform: rotate(200deg);
+    }
+}
+
+
+
+
+/*首頁輪播圖*/
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin: 100px auto 40px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  width: 600px;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include m{
+    width: 500px;
+  }
+  
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*喜帖上半部簡介*/
+.cards_intro_content{
+  max-width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  // border: 1px solid orange;
+    @include t{
+      flex-direction: column;
+    }
+
+  .cards_intro_img{ 
+    
+
+    img{
+    width: 100%;
+    max-width: 690px;
+    max-height: 470px;
+    
+    // border: 1px solid red;
+
+      @include m{
+        max-width: 375px;
+        max-height: 255px;
+      }
+    }
+    
+  }
+} 
+
+
+.index_intro_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 40px 40px 0;
+    // border: 1px solid red;
+
+    @include m{
+      margin-left: 0;
+      margin-top: 20px;
+
+    }
+
+    .index_center{  
+      display: flexbox;
+      // border: 1px solid blue;
+
+      h2{
+        @include title();
+        display: block;
+        // border: 1px solid blue;
+        @include m{
+          font-size: $moblie_h2;
+        }
+      }
+  
+      p{
+        @include subtitle_black();
+        display: block;
+        // border: 1px solid purple;
+        @include m{
+          font-size: $moblie_h3;
+        }
+       
+      }
+
+    }
+
+    
+
+}
+
+
+/*首頁英文文字動畫*/
+.index_words{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color_rice;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 100px auto;
+    
+  div{
+      
+      p{
+        display: block;
+        text-align: center;
+        text-overflow: hide;
+        font-family: 'Oleo Script Swash Caps', cursive;
+        font-size: 160px;
+        color: $color_red;
+        overflow-x: hidden;
+        // border: 1px solid rosybrown;
+        @include t{
+          font-size: 120px;
+          white-space: nowrap;
+          overflow-x: hidden;
+        }
+
+        @include m{
+          font-size: 60px;
+          white-space: nowrap;
+          overflow-x: hidden;
+        }
+      }
+  }
+
+}
+
+
+
+/*首頁下半部簡介*/
+.index_intro{
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid red;
+
+  .index_intro_content{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    margin: 100px 0;
+    // border: 1px solid green;
+    
+    @include t{
+      flex-direction: column;
+    }
+  
+    .index_intro_img{
+      // border: 1px solid green;
+  
+      @include t{
+        margin-top: 40px;
+        order: 1;
+      }
+  
+      img{
+        width: 100%;
+        max-width: 811px; 
+        max-height: 524px;
+        
+        // border: 1px solid red;
+      }
+    }  
+  
+    .index_intro_text{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      // border: 1px solid red;
+      flex-grow: 1;
+
+      
+      @include t{
+        order: 2;
+      }
+
+      .index_center{  
+        display: flexbox;
+        // border: 1px solid blue;
+        
+      }
+    }
+  }
+}
+
+
+
+/*首頁影片*/
+.intro_video{
+  text-align: center;
+  position: relative;
+  margin: 100px auto 0;
+
+  video{
+    width: 100%;
+    height: auto;   
+    z-index: 0; 
+  }
+
+  .index_title{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;   
+
+    @include subtitle_m_white();
+
+    @include t{
+      font-size: $moblie_h3;
+      top: 30vw;
+    }
+
+    @include m{
+      font-size: $moblie_h3;
+      top: 40vw;
+    }
+  } 
+}
+
+
+
+
+
+
+/*首頁婚禮小物*/
+.index_gift{
+  max-width: 1200px;
+  width: 100%;
+  margin: 180px auto 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  // border: 1px solid blue;
+  
+  .index_gift_link{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid red;
+
+    .circle{
+      background-repeat: no-repeat;
+      background-size: contain;
+      text-decoration: none;
+      color: $color_red;
+      border-radius: 50%;
+      text-align: center;
+      transition: opacity .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      border: 1em solid $color_rice;
+    }
+  }
+
+}
+
+/*婚禮小物圖片*/
+.index_gift_1{
+  background-image: url("../images/index_gift_1.jpg");
+  transform: translate(-30%, 50%);
+  
+}
+
+.index_gift_2{
+  background-image: url("../images/index_gift_2.jpg");
+  transform: translate(80%, -120%);
+  
+}
+
+.index_gift_3{
+  background-image: url("../images/index_gift_3.jpg");
+  transform: translate(20%, -10%);
+  
+}
+
+.index_gift_4{
+  background-image: url("../images/index_gift_4.jpg");
+  transform: translate(-20%, -10%);
+  
+}
+
+.index_gift_5{
+  background-image: url("../images/index_gift_5.jpg");
+  transform: translate(-30%, 0);
+
+}
+
+.index_gift_6{
+  background-image: url("../images/index_gift_6.jpg");
+  transform: translate(-100%, 60%);
+  
+}
+
+.index_gift_7{
+  background-image: url("../images/index_gift_7.jpg");
+  transform: translate(40%, -90%);
+}
+
+
+.circle_hover{
+  position: absolute;
+  background: $color_white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity .3s;
+  border-radius: 50%;
+
+  border: 1em solid $color_rice;
+  
+}
+
+
+.index_circle_1, .index_circle_7{
+  @include circle(14vw);
+}
+
+.index_circle_2, .index_circle_3, .index_circle_5, .index_circle_6{
+  @include circle(18vw);
+}
+
+.index_circle_4{
+  @include circle(25vw);
+}
+
+
+
+.hover_text{
+  @include subtitle_m_red();
+  color: $color_gold;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+@media screen and (min-width: 1025px){
+  .circle:hover {
+
+    .circle_hover{
+      opacity: 1;
+    }
+  
+    .hover_text{
+      opacity: 1;
+    }
+  }
+}
+
+/*
+.index_gift{
+  display: flex;
+  @media screen and (min-width: 1400px){
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: $rwd-t){
+    flex-direction: column;
+    margin: 50px auto 0;
+  }
+
+  .index_circle_1{
+    @media screen and (min-width: 1400px){
+      @include circle(200px);
+    }
+    @media screen and (max-width: $rwd-t){
+      @include circle(25vw);
+    }
+  }
+
+}
+*/
+
+@media screen and (min-width: 1400px){
+  .index_gift{
+    justify-content: space-between;
+    
+    .index_circle_1{
+      @include circle(200px);
+    }
+    .index_circle_2{
+      @include circle(230px);
+    }
+    .index_circle_3{
+      @include circle(230px);
+    }
+    .index_circle_4{
+      @include circle(320px);
+    }
+    .index_circle_5{
+      @include circle(230px);
+    }
+    .index_circle_6{
+      @include circle(230px);
+    }
+    .index_circle_7{
+      @include circle(200px);
+    }
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .index_circle_1, .index_circle_7{
+    @include circle(18vw);
+  }
+
+  .index_circle_2, .index_circle_3, .index_circle_5, .index_circle_6{
+    @include circle(20vw);
+  }
+
+  .index_gift_7{
+    transform: translate(10%, -100%);
+  }
+}
+
+@media screen and (max-width: $rwd-t){
+  .index_gift{
+    flex-direction: column;
+    margin: 50px auto 0;
+
+    .index_gift_link{
+      width: 100%;
+
+      .index_circle_1, .index_circle_7{
+        @include circle(25vw);
+      }
+      
+      .index_circle_2, .index_circle_3, .index_circle_5 {
+        @include circle(40vw);
+      }
+      
+      .index_circle_4, .index_circle_6{
+        @include circle(50vw);
+      }
+
+      .index_gift_5{
+        transform: translate(-40%, 20%);     
+      }
+
+      .index_gift_7{
+        transform: translate(60%, -190%);
+      }
+
+      .index_gift_6{
+        transform: translate(-40%, 40%);
+        
+      }
+
+      .index_gift_2{
+        transform: translate(60%, -120%);
+        
+      }
+
+      .index_gift_1{
+        transform: translate(-20%, 40%);
+        
+      }
+
+      .index_gift_3{
+        transform: translate(40%, -80%);
+        
+      }
+
+      .index_gift_4{
+        transform: translate(-30%, -60%);
+        
+      }
+
+    }
+
+    .rwd1{
+      order: 2;
+    }
+    .rwd2{
+      order: 3;
+    }
+    
+    .rwd3{
+      order: 1;
+    }
+
+  }
+}
+
+  @media screen and (max-width: $rwd-m){
+    .index_gift{
+      flex-direction: column;
+      margin: 100px auto 0;
+  
+      .index_gift_link{
+        width: 100%;
+  
+        .index_circle_1, .index_circle_7{
+          @include circle(30vw);
+        }
+        
+        .index_gift_2{
+          transform: translate(40%, -120%);
+          
+        }
+  
+        .index_gift_1{
+          transform: translate(-60%, 40%);
+          
+        }
+  
+      }
+    }
+  }
+
+
+
+/*婚禮小物文案*/
+.index_gift_intro{
+  margin: 40px auto 60px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid red;
+  order: 4;
+
+  h2{
+    @include title();
+  }
+
+  p{
+    @include subtitle_black();
+  }
+  
+}
+
+
+
+@media screen and (max-width: $rwd-t){
+  .index_gift_intro{
+    margin: 0 auto;
+    transform: translateY(-60%);
+  }
+}
+
+/*
+@media screen and (max-width: $rwd-m){
+  .hover_text{
+      font-size: $moblie_h3;
+  }
+}
+*/

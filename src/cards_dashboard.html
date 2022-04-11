@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layout/meta.html', {
+    "title" : "喜帖客製_工作區"
+    })
+    <title>我的喜帖 | 喜帖客製_工作區</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+        $(function() {
+        let checkTime = document.getElementById('checkTime')
+        let setMin = 60;
+        checkTime.innerText =  setMin;
+
+        timer = setInterval(function(){
+            if(setMin > 0){
+                setMin--
+                checkTime.innerText =  setMin;
+
+            }else{
+                clearInterval(timer)
+            }
+        },1000)
+        })
+    </script>
+    <script>
+            fetch('./API/member_data.php', {})
+        .then((response) => {
+            return response.json();
+        }).then((jsonData) => {
+            console.log(jsonData)
+            //console.log("JSON:" + jsonData.member_account);
+            if (jsonData.result != true) {
+                alert('請先登入會員！');
+                location.href = "./login.html";                
+            } else {
+                
+            }
+        }).catch((err) => {
+            console.log('錯誤:登入', err);
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="cards_dashboard_v">
+        <aside class="cards_dashboard_aside">
+            <div class="cards_dashboard_aside_logo">
+                <a href="./index.html"><img src="./images/logo_red.png" alt="logo"></a>
+                <h2 id="h2title">
+                    Happy {{nowWeek}},
+                    <br>
+                    {{cards_info_womaneng}} & {{cards_info_maneng}}!
+                </h2>
+            </div>
+            <h2>
+                網頁設計 
+            </h2>
+
+            <div class="cards_dashboard_list">
+                <a href="./cards_info.html">
+                    <div class="cards_dashboard_ic">
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_detail.svg"
+                            alt="edit"></div>
+                    <p>婚禮細節</p>
+                    </div>
+                </a>
+                <a href="./cards_upload.html">
+                    <div class="cards_dashboard_ic">
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_photo.svg" alt="edit">
+                        </div>
+                        <p>上傳相片</p>
+                    </div>
+                </a>
+                <a href="./cards_skin.html">
+                    <div class="cards_dashboard_ic">
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_edit.svg" alt="edit">
+                        </div>
+                        <p>樣式編輯</p>
+                    </div>
+                </a>
+            </div>
+
+
+            <h2>
+                婚禮規劃
+            </h2>
+            <div class="cards_dashboard_list">
+                <a href="./cards_reply.html">
+                    <div class="cards_dashboard_ic">
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_analyze.svg"
+                                alt="edit"></div>
+                        <p>賓客回復統計</p>
+                    </div>
+                </a>
+            </div>
+
+        </aside>
+
+        <main class="cards_dashboard_main">
+            <div class="cards_dashboard_main_webcontrol">
+                <img src="./images/icons/computer.svg" alt="computer" @click="web">
+                <img src="./images/icons/mobile.svg" alt="mobile" @click="mobi">
+            </div>
+
+            <!-- <div class="cards_dashboard_TV">
+                <div class="cards_dashboard_TV2">
+                    <iframe id="cards_dashboard_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="./cards_exports.html" frameborder="0" ></iframe>
+                </div>
+            </div> -->
+            <div class="cards_dashboard_newout" id="cards_dashboard_newout">
+                <div class="cards_exports_titlebg">
+                    <h1 class="cards_exports_title" :style="changeTopC">{{cards_info_title}}</h1>
+                    <div class="cards_exports_atop">
+                        <a href="#cards_exports_infotext">婚禮資訊</a>
+                        <a href="#cards_exports_infotext3">我們的故事</a>
+                        <a href="#cards_exports_infotext5">出席回覆</a>
+                    </div>
+                    <div class="cards_exports_img01">
+                        <img :src="image1" alt="">
+                    </div>
+                    <div class="cards_exports_imgbg">
+                        <img :src="topicImg" alt="">
+                    </div>
+
+                </div>
+ 
+                <h2 class="cards_exports_dtext">我們迫不急待地想和你分享我們特別的這一天。</h2>
+
+                <div class="cards_exports_time">
+                    <p class="cards_exports_time_01" :style="changeTopC" >{{cards_info_marrydate}}</p>
+                    <p class="cards_exports_time_02" :style="changeTopC">Wednesday</p>
+                    <div class="cards_exports_time_03" >加入google行事曆</div>
+                    <p class="cards_exports_time_04">台北大直典華三樓 璀璨聽</p>
+
+                </div>
+
+
+
+
+
+                <div class="cards_exports_infoimg">
+                    <img :src="image2" alt="">
+                </div>
+
+
+                <h2 class="cards_exports_infotext" id="cards_exports_infotext" :style="changeTopC">婚禮資訊</h2>
+
+
+                <div class="cards_exports_infooutbox">
+                    <div class="cards_exports_iframeei">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw"
+                            width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+
+                    <div class="cards_exports_infobox">
+                        <div class="cards_exports_infomap">
+                            日期&時間 | Date&Time
+                            <p >
+                                {{cards_info_marrydate}}
+                            </p>
+                        </div>
+                        <div class="cards_exports_infomap">
+                            場地｜Venue
+                            <p>
+                                大直典華 三樓 璀璨廳
+                            </p>
+                        </div>
+                        <div class="cards_exports_infomap">
+                            地址＆電話｜Address＆Tel
+                            <p >
+                                {{cards_info_local}}<br>
+                                02-1314-2599
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="cards_exports_infoimg3">
+                    <img :src="image3" alt="">
+                </div>
+
+                <h2 class="cards_exports_infotext3" id="cards_exports_infotext3" :style="changeTopC">我們的故事</h2>
+
+                <p class="cards_exports_story">
+                    {{cards_info_lovestory}}
+                    
+                </p>
+
+
+                <h2 class="cards_exports_infotext4" :style="changeTopC">婚禮倒數</h2>
+
+                <div class="cards_exports_ontime">
+                    <div class="cards_exports_ontime1"><span>102</span>days</div>
+                    <div class="cards_exports_ontime1"><span>15</span>hour</div>
+                    <div class="cards_exports_ontime1"><span>48</span>min</div>
+                    <div class="cards_exports_ontime1"><span id="checkTime"></span>sec</div>
+                </div>
+
+                <div class="cards_exports_frombg">
+
+                    <div class="cards_exports_infoimg4">
+                        <img :src="image4" alt="">
+                    </div>
+
+
+                    <h2 class="cards_exports_infotext5" id="cards_exports_infotext5" :style="changeTopC">出席回覆</h2>
+
+                    <p class="cards_exports_formte">
+                        我們懷著喜悅與感謝的心，期待能見到你!<br>
+                        為方便安排座席，請於<span>{{cards_info_marrydateend}}</span>前回覆出席資訊，謝謝!
+                        
+                    </p>
+                    
+                    <div id="myapp">
+                        <section class="cards_exports_fromexpo">
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 您的中文姓名</p>
+                                <input type="text" placeholder="王小明" class="cards_exports_forminput" >
+                            </div>
+                
+                            <div class="cards_exports_fromQ1" id="send_expo_2">
+                                <p class="cards_exports_formname">* 手機號碼</p>
+                                <input type="text" placeholder="0912345678" class="cards_exports_forminput" >
+                            </div>
+                
+                            <div class="cards_exports_fromQ1" id="send_expo_3">
+                                <p class="cards_exports_formname">* E-mail</p>
+                                <input type="email" placeholder="wearecupid@gmail.com" class="cards_exports_forminput" >
+                            </div>
+                
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 請問您與新人的關係？</p>
+                                <select  >
+                                    <option value="男方家人">男方家人</option>
+                                    <option value="男方朋友">男方朋友</option>
+                                    <option value="男方同事">男方同事</option>
+                                    <option value="女方家人">女方家人</option>
+                                    <option value="女方朋友">女方朋友</option>
+                                    <option value="女方同事">女方同事</option>
+                                </select>
+                            </div>
+                
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 請問是否能來參加我們的婚宴？</p>
+                                <select >
+                                    <option value="是">是的，我會參加</option>
+                                    <option value="否">無法參加</option>
+                                </select>
+                            </div>
+                
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 請問當天的攜伴人數?</p>
+                                <select >
+                                    <option value="0">無需攜伴</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 請問需要為您準備幾份素食?</p>
+                                <select >
+                                    <option value="0">不需要</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">* 請問需要寄送紙本喜帖給您嗎?</p>
+                                <select id="cards_exports_send" onchange="cardsendexp()" >
+                                    <option value="是">是</option>
+                                    <option value="否">否</option>
+                                </select>
+                            </div>
+                
+                            <div class="cards_exports_fromQ1" id="send_expo_1">
+                                <p class="cards_exports_formname">地址</p>
+                                <input type="text" placeholder="**縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput" >
+                            </div>
+                            <div class="cards_exports_fromQ1">
+                                <p class="cards_exports_formname">備註</p>
+                                <input type="text" placeholder="請留下其它想問的問題或想說的話" class="cards_exports_forminput">
+                            </div>
+                
+                            <button class="cards_exports_submit btn_red" value='Add' >送出</button>
+                            <span class="cards_exports_down"></span>
+                
+                        </section>    
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="cards_dashboard_bottom_ic">
+                <a @click="export_linkk(event)">
+                    <div><img src="./images/icons/new_page.svg" alt="page">
+                        <p >查看網站</p>
+                    </div>
+                </a>
+                <a id="cards_dashboard_sharebtn" @click="mod(event)">
+                    <div><img src="./images/icons/share.svg" alt="page">
+                        <p>分享</p>
+                    </div>
+                </a>
+
+            </div>
+
+
+
+
+        </main>
+
+        <!-- =======================================pop彈窗========================================= -->
+        <div class="cards_popboard_blackbg" id="cards_popboard_blackbg">
+            <div class="cards_popboard">
+
+                <h2>親愛的 LIZ& MOU</h2>
+                <br>
+                <p>恭喜完成親手釘製的喜帖 !</p>
+                <p>快把這份喜悅分享出去吧 !</p>
+
+                <input id="cards_hreff" type="text" value="" v-model="cards_hreff">
+                <img class="cards_popcopybtn" src="./images/icons/copy.svg" alt="">
+
+                <div class="cards_popshareout">
+                    <div class="cards_popshareall">
+                        <p @click="hreff">以瀏覽器開啟</p>
+                        <p @click="copyy">點擊複製網址</p>
+                        <p>以電子郵件傳送</p>
+                        <p>分享到FACEBOOK</p>
+                        <p>分享到INSTAGRAM</p>
+                    </div>
+                    <div>
+                        <img src="./images/qrcode5.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="cards_popbtndown">
+                    <a href="./index.html" class="btn_red">回首頁</a>
+                    <a href="javascript:window.print()" class="btn_red">列印喜帖</a>
+                </div>
+                <div class="cards_popclose" @click="modcloser(event)"><img src="./images/icons/close.svg" alt=""></div>
+            </div>
+        </div>
+        <!-- =======================================pop彈窗========================================= -->
+
+
+
+
+    </div>
+
+
+
+    <script>
+        // let cards_demo_ifm = document.getElementById('cards_dashboard_ifm');
+        // function changeFrameHeight(){
+        //     cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+        // }
+        // window.onresize = function(){
+        //     changeFrameHeight();
+        // }
+        Vue.config.devtools = true;
+        function cardsendexp() {
+            // console.log(cards_exports_send[cards_exports_send_index]);
+            // console.log(cards_exports_send.value);
+            if (cards_exports_send.value == 1) {
+                let send_expo_1 = document.getElementById('send_expo_1');
+                let send_expo_2 = document.getElementById('send_expo_2');
+                let send_expo_3 = document.getElementById('send_expo_3');
+
+                send_expo_1.style.display = 'block';
+                send_expo_2.style.display = 'block';
+                send_expo_3.style.display = 'block';
+            } else if (cards_exports_send.value == 2) {
+                send_expo_1.style.display = 'none';
+                send_expo_2.style.display = 'none';
+                send_expo_3.style.display = 'none';
+            }
+        }
+
+        // 開啟 Modal 彈跳視窗
+
+
+        new Vue({
+            el: '#cards_dashboard_v',
+            data: {
+                topicImg:'./images/cards/cards_exports_01_00.jpg',
+                topicColor:'rgba(147, 38, 57, 1)',
+                topicFont:'Noto Serif TC", serif',
+                nowWeek:'',
+                nowTime:new Date().getDay(),
+                image1:'',
+                image2:'',
+                image3:'',
+                image4:'',
+                cards_info_title: '',
+                cards_info_maneng: '',
+                cards_info_womaneng: '',
+                cards_info_goodtalk: '',
+                cards_info_local: '',
+                cards_info_marrydate: '',
+                cards_info_marrydateend: '',
+                cards_info_lovestory: '',
+                cards_hreff:'http://www.cupid.com/LIZ-AND-MOU',
+
+                export_link:"",
+            },
+            computed: {
+                changeTopC() {
+                    return {
+                        color: `${this.topicColor}`,
+                        fontFamily: `${this.topicFont}`
+                    }
+                },
+                
+
+            },
+            methods: {
+                mod(e) {
+                    document.getElementById('cards_popboard_blackbg').style.display = "block"
+                },
+                modcloser(event) {
+                    document.getElementById('cards_popboard_blackbg').style.display = "none"
+                },
+                web(e){
+                    document.getElementById('cards_dashboard_newout').style.width = "80%"
+                },
+                mobi(e){
+                    document.getElementById('cards_dashboard_newout').style.width = "365px"
+                },
+                hreff(e){
+                    window.open('cards_exports.html?id=1', '_blank');
+                },
+                copyy(e){
+                    document.getElementById('cards_hreff').select();
+                    document.execCommand('copy');
+                },
+                export_linkk(e){
+                    location.href = `./cards_exports.html?id=${this.export_link}` 
+                }
+
+            },
+
+            mounted() {
+                const weekArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                const getWeek = new Date().getDay();
+                this.nowWeek = weekArr[getWeek];
+                
+
+
+                axios.get('./API/cards_info.php').then( (res) => {
+                    console.log(res.data);
+                    this.topicImg = res.data[0].cardhistory_templatename;
+                    this.topicColor = res.data[0].cardhistory_templatecolor;
+                    this.topicFont = res.data[0].cardhistory_fontname;
+                    this.image1 = res.data[0].cardhistory_photoupload;
+                    this.image2 = res.data[0].cardhistory_photoupload2;
+                    this.image3 = res.data[0].cardhistory_photoupload3;
+                    this.image4 = res.data[0].cardhistory_photoupload4;
+
+                    this.cards_info_title = res.data[0].cardhistory_title;
+                    this.cards_info_maneng = res.data[0].cardhistory_manengname;
+                    this.cards_info_womaneng = res.data[0].cardhistory_womanengname;
+                    this.cards_info_goodtalk = res.data[0].cardhistory_greeting;
+                    this.cards_info_local = res.data[0].cardhistory_location;
+                    this.cards_info_marrydate = res.data[0].cardhistory_date;
+                    this.cards_info_marrydateend = res.data[0].cardhistory_dateend;
+
+                    this.cards_info_lovestory = res.data[0].cardhistory_ourstory;   
+                    this.export_link = res.data[0].member_ID               
+                   
+                })
+
+                // ==================未填資料提示==========================
+                // if(!this.cards_info_maneng == " "){
+                //     // this.cards_info_maneng = '填寫您的婚禮細節~開始客制旅程';
+                //     document.getElementById('h2title').innertext= " Hapsssspy"
+                // }
+
+            },
+
+        });
+    </script>
+</body>
+
+</html>

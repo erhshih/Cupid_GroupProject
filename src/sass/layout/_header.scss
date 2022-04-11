@@ -1,0 +1,478 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  font-size: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  z-index: 100;
+  top: 0;
+
+  .header_center {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    max-width: 1200px;
+    width: 100%;
+
+    .header_left {
+      display: flex;
+      // border: 1px solid orange;
+      align-items: center;
+
+      .logo_img {
+        display: block;
+        position: relative;
+        width: 60px;
+        margin: 0 20px;
+        z-index: 4;
+
+        // border: 1px solid orange;
+
+        .logo_img-inner {
+          position: relative;
+          width: 100%;
+          // border: 1px solid green;
+        }
+
+        .-real {
+          opacity: 1;
+        }
+
+        .-hover {
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover {
+          .-real {
+            opacity: 0;
+          }
+
+          .-hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .nav {
+        display: inline-flex;
+        vertical-align: middle;
+
+        .link_list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          
+          li {
+            display: inline-block;
+
+            body.aboutus-on &:nth-child(1) a {
+              color: $color_gold;
+            }
+  
+            body.cards-on &:nth-child(2) a {
+              color: $color_gold;
+            }
+  
+            body.gift-on &:nth-child(3) a {
+              color: $color_gold;
+            }
+  
+            body.faq-on &:nth-child(4) a {
+              color: $color_gold;
+            }
+
+            a {
+              display: inline-block;
+              text-decoration: none;
+              text-align: center;
+              padding: 8px 10px;
+              min-width: 100px;
+              
+              @include content_text_red();
+              
+              // border: 1px solid red;
+
+              &:hover {
+                color: $color_gold;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .header_right {
+      display: flex;
+      // border: 1px solid orange;
+      align-items: center;
+
+      a {
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 0;
+        min-width: 100px;
+        width: 24px;
+        margin-right: 20px;
+        cursor: pointer;
+        // border: 1px solid red;
+        position: relative;
+        @include content_text_red();
+
+        body.member-on &:nth-child(1) {
+          color: $color_gold;
+        }
+
+        svg {
+          margin-right: 5px;
+        }
+
+        &:hover {
+          color: $color_gold;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $rwd-t) {
+  .link_list,
+  .header_left,
+  .header_right,
+  .header_right a svg,
+  .header_right a p {
+    display: none;
+  }
+}
+
+/* ======= RWD導覽列 ======= */
+
+.header_right_aside {
+  display: flex;
+  align-items: center;
+  right: 0;
+  top: 40px;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 4;
+
+  a {
+    display: flex;
+    text-decoration: none;
+    width: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+    @include content_text_red();
+    position: relative;
+    svg {
+      &:hover {
+        color: $color_gold;
+      }
+    }
+  }
+
+  @media screen and (min-width: $rwd-t) {
+    display: none;
+  }
+}
+
+.menu_aside {
+  /* border: 1px solid blue; */
+  position: fixed;
+  background-color: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(20px);
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 10px 0;
+  transition: transform 0.5s;
+  z-index: 3;
+  transform: translateX(100%);
+
+  .menu_aside_nav {
+    .menu_aside_nav_list {
+      list-style: none;
+      margin-top: 100px;
+      padding: 0;
+
+      li {
+
+        body.aboutus-on &:nth-child(1) a {
+          color: $color_gold;
+        }
+
+        body.cards-on &:nth-child(2) a {
+          color: $color_gold;
+        }
+
+        body.gift-on &:nth-child(3) a {
+          color: $color_gold;
+        }
+
+        body.faq-on &:nth-child(4) a {
+          color: $color_gold;
+        }
+
+        a {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+          text-align: center;
+          padding: 15px 20px;
+          position: relative;
+
+          @include content_text_red();
+
+          &:hover {
+            @include content_text_red();
+            color: $color_gold;
+          }
+
+          .-on {
+            @include content_text_red();
+            color: $color_gold;
+            /* border: 1px solid blue; */
+          }
+        }
+      }
+    }
+  }
+}
+
+// .aside_bg{
+//   right:0;
+//   top: 0;
+//   width: 100%;
+//   height: 100vh;
+//   position: absolute;
+//   overflow-y: auto;
+//   background-color: $color_black;
+//   opacity: .3;
+//   transform: translateX(100%);
+//   z-index: 2;
+// }
+
+.-open {
+  transform: translateX(0%);
+}
+
+/* ======= 漢堡選單 ======= */
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid blue;
+  width: 40px;
+  height: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+
+  @media screen and (max-width: $rwd-t) {
+    .burger {
+      display: block;
+      position: fixed;
+
+      // border: 1px solid blue;
+    }
+  }
+
+  .hamburger--collapse {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    /* border: 1px solid red;  */
+  }
+
+  /* ======= 漢堡選單 套件 ======= */
+
+  .hamburger {
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    // border: 1px solid green;
+    margin-right: 20px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .hamburger.is-active:hover {
+    opacity: 0.7;
+  }
+
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: $color_red;
+  }
+
+  .hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: fixed;
+    transform: translateY(-50%);
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+  }
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 30px;
+    height: 3px;
+    background-color: $color_red;
+    border-radius: 5px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    content: "";
+    display: block;
+  }
+  .hamburger-inner::before {
+    top: -10px;
+  }
+  .hamburger-inner::after {
+    bottom: -10px;
+  }
+
+  /* collapse */
+  .hamburger--collapse .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-delay: 0.13s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: 0.13s;
+  }
+  .hamburger--collapse .hamburger-inner:after {
+    top: -20px;
+    transition: top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+      opacity 0.1s linear;
+  }
+  .hamburger--collapse .hamburger-inner:before {
+    transition: top 0.12s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+      transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  .hamburger--collapse.is-active .hamburger-inner {
+    transition-delay: 0.22s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, -10px, 0) rotate(-45deg);
+  }
+  .hamburger--collapse.is-active .hamburger-inner:after {
+    top: 0;
+    transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+      opacity 0.1s linear 0.22s;
+    opacity: 0;
+  }
+  .hamburger--collapse.is-active .hamburger-inner:before {
+    top: 0;
+    transition: top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.16s,
+      transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s;
+    transform: rotate(-90deg);
+  }
+  .hamburger--collapse-r .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-delay: 0.13s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: 0.13s;
+  }
+  .hamburger--collapse-r .hamburger-inner:after {
+    top: -20px;
+    transition: top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+      opacity 0.1s linear;
+  }
+  .hamburger--collapse-r .hamburger-inner:before {
+    transition: top 0.12s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s,
+      transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  .hamburger--collapse-r.is-active .hamburger-inner {
+    transition-delay: 0.22s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, -10px, 0) rotate(45deg);
+  }
+  .hamburger--collapse-r.is-active .hamburger-inner:after {
+    top: 0;
+    transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+      opacity 0.1s linear 0.22s;
+    opacity: 0;
+  }
+  .hamburger--collapse-r.is-active .hamburger-inner:before {
+    top: 0;
+    transition: top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.16s,
+      transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s;
+    transform: rotate(90deg);
+  }
+}
+
+@media screen and (min-width: $rwd-t) {
+  .menu_aside,
+  .hamburger {
+    display: none;
+  }
+}
+
+//購物車數字
+.cart_num {
+  position: absolute;
+  top: 7px;
+  left: 28px;
+  z-index: 10000;
+  height: 16px;
+  width: 16px;
+  line-height: 1.26em;
+  border-radius: 50%;
+  background-color: $color_red; //加了這個 01/20
+  color: #fff;
+
+  @media screen and (max-width: $rwd-t) {
+    display: none;
+  }
+}
+
+.cart_num1 {
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  z-index: 10000;
+  height: 16px;
+  width: 16px;
+  padding-left: 0.27em;
+  line-height: 1.1em;
+  border-radius: 50%;
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+}

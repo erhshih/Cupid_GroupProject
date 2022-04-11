@@ -1,0 +1,411 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.faqmain{
+    padding-top:80px
+}
+.qabanner{
+    
+    width: 100%;
+    // min-width: 1440px;
+    height: 501px;
+
+    background-image: url(../images/qabanner.png);
+    background-position: center center;
+    overflow: hidden;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    // img{
+    //     display: inline;
+    //     width: 1440px;
+
+    // }
+
+    .qaicon{
+        display: inline;
+        padding-top: 230px;
+        padding-left: 45px;
+        img{
+            width: 90px;
+            height: 90px;
+            margin-bottom: 10px;
+        }
+        p{
+            // font-size: $h1;
+            // color: $color_white;
+            // font-weight: $w2;
+            @include title_m_white();
+            line-height: 0;
+            
+        }
+    }
+}
+
+// QA
+.qacontainer {
+    max-width: 950px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    padding: 0 100px;
+    position: relative;
+    z-index: 50;
+    @media screen and (min-width: 320px) and (max-width: 767.98px){
+       width: 90%;
+       padding: 0 10px;
+    }
+
+    .qa-title {
+        // background-color:white;
+        // height: 45px;
+        border-bottom: 1px solid $color_red;
+        // border-radius: 4px;
+        color: $color_black;
+        font-size: $h3;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 10px 0 10px 0;
+        margin-top: 20px;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        img{
+            padding-left: 10px;
+            padding-right: 20px;
+        }
+        
+
+        // .open-close {
+        //     position: absolute;
+        //     right: 16px;
+        //     }
+    }
+    .qa-title:hover {
+        background-color: #DBBAB6;
+        color: white;
+    }
+    .qa-content {
+        padding: 16px 70px;
+        line-height: 1.8;
+        // display: none;
+    }
+}
+
+.ans1{
+    // display: flex;
+    margin: 0 auto;
+    
+
+    .step{
+        vertical-align: middle;
+        img{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 20px;
+            
+        }
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: $h3;
+        }
+    }
+}
+a.qabutton{
+    display: block;
+    width: 180px;
+    height: 40px;
+    background-color: $color_red;
+    // margin-bottom: 90px;
+    text-align: center;
+    margin: 0 auto 90px auto;
+    border-radius: 4px;
+    text-decoration: none;
+    position: relative;
+    z-index: 10;
+    
+
+    span{
+        display: block;
+        width: 180px;
+        height: 40px;
+        color: $color_white;
+        font-size: $h4;
+        padding-top: 10px ;
+    }
+}
+.qaletter{
+    // background-color: burlywood;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //  background-color: gold; 
+
+    .box {
+        position: relative;
+        transform: translateY(-200px);
+    }
+
+    .box .form {
+        background-color: #fff;
+        border: 1px solid $color_gold;
+        margin: 0 auto;
+        padding-top: 48px;
+        position: relative;
+        z-index: 1;
+        width: 700px;
+        height: 650px;
+        box-sizing: border-box;
+        transform: matrix(0.000009, 0, 0, 0.000009, 0, 755);
+        transition: 2s;
+        box-shadow:3px 3px 9px gray;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            width: 550px;
+        }
+    }
+    a.qabutton:hover{
+        background-color: $color_gold;
+    }
+
+    .body-img {
+        position: relative;
+        z-index: 2;
+        // transform: translateY(-100px);
+      
+    }
+
+    .backbody {
+        width: 100%;
+        // height: 404px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+        /* border-top: 1px solid #936b50; */
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .cover-img {
+        /* transform: matrix3d(1, 0, 0, 0, 0, 0.933005, -0.359863, 0, 0, 0.359863, 0.933005, 0, 0, 0.824235, 0, 1) */
+        transform-origin: bottom;
+        transform: rotateX(-150deg);
+        transition: 2s;
+        z-index: -1;
+        /* background-color: #fff; */
+    }
+
+    .cover-img img {
+        max-width: 800px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            max-width: 600px;
+        }
+        
+
+    }
+
+    .body-img img {
+        max-width: 800px;
+        // box-shadow:3px 3px 9px gray;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            max-width: 600px;
+        }
+    }
+
+    .box .formShow {
+        transform: matrix(1, 0, 0, 1, 0, 380);
+        transition: 2s;
+    }
+
+    .openA {
+        transform-origin: bottom;
+        transform: rotateX(0deg);
+        transition: 2s;
+    }
+
+}
+.qaletter{
+    @media screen and (min-width: 576px) and (max-width: 767.98px){
+    font-size: $h4;
+    }
+    @media screen and (min-width: 375px) and (max-width: 575.98px){
+        display: none
+    }
+
+    p.h1{
+    color: $color_gold;
+    font-size: $h2;
+    text-align: center;
+    margin-bottom: 20px;
+      @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h3;
+        margin-bottom: 10px;
+        }
+    }
+    p.ask{
+    font-size: $h3;
+    color: $color_gray1;
+    margin-bottom: 10px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        
+        }
+    }
+    div.content{
+    padding-left: 100px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+                padding-left: 0px;
+                width: 400px;
+                margin: 0 auto;
+            }
+        div{
+            margin-bottom: 20px;
+            @media screen and (min-width: 576px) and (max-width: 767.98px){
+                        margin-bottom: 0px;
+                        margin-bottom: 15px;
+                }
+            }
+    }
+    label{
+    font-size: $h3;
+    color: $color_gray1;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        }
+    }
+    input{
+    width: 400px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid $color_gray1;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        width: 300px;
+    }
+
+    }
+    input:focus{
+    outline: none;
+    }
+    .formradio{
+    display: flex;
+
+        input{
+            width: 23px;
+            height: 23px;
+            padding-top: 5px;
+            vertical-align: middle;
+        }
+        label{
+            font-size: $h3;
+            vertical-align: middle;
+            margin-right: 30px;
+            @media screen and (min-width: 576px) and (max-width: 767.98px){
+                font-size: 12px;
+            }
+        }
+        
+    }
+    .other{
+    font-size: $h3;
+    color: $color_gray1;
+    display: inline-block;
+    vertical-align: text-top;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            font-size: $h4;
+        }
+    }
+    textarea{
+    display: inline-block;
+    width: 400px;
+    height: 105px;
+    vertical-align: text-top;
+    }
+    .button{
+
+    display: flex;
+        button{
+            margin: 0 auto;
+            // text-align: center;
+        }
+
+    }  
+}
+.qaletterbb{
+    display: none;
+    
+    @media screen and (min-width: 375px) and (max-width: 575.98px){
+        display: block;
+
+    }
+    .box{
+        width: 350px;
+        border: 1px solid $color_gold;
+        // border: 1px solid red;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        .h1{
+            font-size: $h3;
+            color: $color_gold;
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+        p.ask{
+            color: $color_gray1;
+            margin-top: 10px;
+        }
+        .content{
+            width: 80%;
+            margin: 0 auto;
+            // border: 1px solid green;
+            text-align: center;
+            margin-bottom: 10px;
+            
+            label{
+                color: $color_gray1;
+            }
+            input{
+                border: none;
+                border-bottom: 1px solid $color_gray1;
+            }
+            input:focus{
+                outline: none;
+            }
+            .other{
+                color: $color_gray1;
+            }
+            .formradio{
+                display: flex;
+                font-size: 14px;
+                flex-direction: column;
+               margin-bottom: 10px;
+
+            }
+            textarea{
+                width: 200px;
+                height: 100px;
+            }
+        }
+        .button{
+            margin: 0 auto;
+            display: block;
+            // border: 1px solid blue;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    }
+}

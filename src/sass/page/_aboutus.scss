@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+.aboutusmain{
+    padding-top: 80px;
+    // .aboutusbanner{
+    //     width: 100%;
+    //     height: 60vh;
+    //     margin-bottom: 151px;
+    //     background-image: url(../../images/ab_banner.jpg);
+    //     background-size: cover;
+    //     background-position:  center center;
+    //     img{
+    //         width: 100%;
+    //         height: 810px;
+    //     }
+    // }
+}
+.aboutusstory{
+    // height: 915px;
+    // border: 1px solid green;
+    font-size: 0;
+    display: flex;
+    margin-bottom: 194px;
+    
+
+    .aboutusstoryleft{
+        overflow: hidden;
+        // background-color: rosybrown;
+        // display: inline-block;
+        // width: 607px;
+        width: 43%;
+        // height: 912px;
+        margin-right: 118px;
+        margin-top: 30px;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: none;
+          
+            }
+
+        .aboutusabout_a{
+            // border: 1px solid red;
+            background-image: url(../images/aboutus_a.jpg);
+            background-size: cover;
+            background-position:  center center;
+            width: 100%;
+            height: 285px;
+            margin-bottom: 23px;
+        }
+        div.aboutusabout_b{
+            width: 607px;
+            overflow: hidden;
+            .aboutusabout_ba{
+                width: 303px;
+                height: 297px;
+                background-size: cover;
+                margin-right: 18px;
+                margin-bottom: 21px;
+                
+            }
+           .aboutusabout_bb{
+                width: 285px;
+                height: 298px;
+                margin-bottom: 21px;
+            }
+        }
+        .aboutusabout_c{
+            // @media screen and (min-width: 320px) and (max-width: 991.98px){
+            //     display: none;
+            //   }
+            width: 607px;
+            overflow: hidden;
+            .aboutusabout_ca{
+                width: 202px;
+                height: 285px;
+                margin-right: 20px;
+            }
+            .aboutusabout_cb{
+                width: 385px;
+                height: 285px;
+            }
+        }
+    }
+    
+    .aboutusstoryright{
+        // background-color: skyblue;
+        // width: 590px;
+        width: 40%;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            width: 80%;
+            margin: 0 auto;
+            }
+
+        .aboutustext{
+            margin-top: 50px;
+            // background-color: grey;
+            // width: 590px;
+            width: 100%;
+            margin-bottom: 40px;
+            color: $color_black;
+
+            .aboutustit{
+                font-size: $h2;
+                font-weight: $w2;
+                color: $color_red;
+                margin-bottom: 10px;
+            }
+            .aboutuscontent{
+                font-size: $h4;
+                line-height: 20px;
+                color: $color_black;
+            }
+
+        }
+        .aboutussing{
+            // background-color: aquamarine;
+            width: 172px;
+            height: 99px;
+            margin-bottom: 23px;
+
+            img.aboutussing{
+                width: 172px;
+                height: 99px;
+                transform: rotate(-5.87deg);
+            }
+        }
+
+        .aboutusceo{
+            background-size: contain;
+            // background-color: blue;
+            vertical-align:middle;
+
+            img.aboutusceo{
+                width: 50px;
+                display: inline-block;
+                margin-right: 14px;
+                
+            }
+            p{
+                font-size: $h4;
+                line-height: 24px;
+                // margin-top: 20px;
+                display: inline-block;
+                color: $color_black;
+                transform: translateY(7px);
+                
+            }
+        }
+
+    }
+
+}
+
+.aboutusbrand{
+    vertical-align: middle;
+    margin-bottom: 166px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (min-width: 320px) and (max-width: 767.98px){
+        display: block;
+        }
+    
+
+    img{
+        // width: 608px;
+        width: 43%;
+        // height: 434px;
+        background-color: darkgoldenrod;
+        // margin-right: 118px;
+        vertical-align: middle;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            }
+    }
+    .aboutusbrand_text{
+        // width: 590px;
+        width: 40%;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8.3%;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 50px;
+            }
+        // 
+        p.tit{
+            font-size: $h2;
+            color: $color_red;
+            font-weight: $w2;
+            margin-bottom: 14px;
+        }
+        p.content{
+            font-size: $h4;
+            color: $color_black;
+            line-height: 24px;
+        }
+    }
+}
+.aboutusjoin_banner{
+    width: 100%;
+    height: 600px;
+    background-image: url(../images/about_e.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 87px;
+}
+.aboutusjoin_text{
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 87px;
+    h1{
+        font-size: $h2;
+        color: $color_gold;
+        font-weight: $w2;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: $h4;
+        color: $color_black;
+        span{
+            color: $color_gold;
+        }
+
+    }
+}
+.aboutusend{
+    text-align: center;
+    background-image: url(../images/about_end.jpeg);
+    background-size: cover;
+    background-position: center center;
+    height: 810px;
+    
+    p{
+        font-size: $h1;
+        font-family: $f1;
+        color: $color_gray1;
+        padding-top: 127px;
+
+    }
+    
+}

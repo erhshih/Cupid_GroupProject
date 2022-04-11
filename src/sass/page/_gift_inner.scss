@@ -1,0 +1,453 @@
+.gift_inner_wrap {
+  max-width: 1440px;
+  padding: 0 15vw;
+  margin: 0 auto;
+  @include m {
+    padding: 0 5vw;
+  }
+  @media (min-width: 1440.1px) {
+    padding: 0 80px;
+  }
+}
+
+.gift_inner_top {
+  // padding: 0 min(6vw, 90px);
+  display: flex;
+  padding-top: 12em;
+  justify-content: space-between;
+
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    flex-direction: column;
+  }
+  @include m {
+    flex-direction: column;
+  }
+}
+
+.gift_inner_top .left {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  margin-right: 7vw;
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    width: 100%;
+  }
+  @include m {
+    width: 100%;
+  }
+}
+
+.gift_inner_top .left .photo_small {
+  width: 17%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gift_inner_top .left .photo_big {
+  width: 83%;
+  margin-left: 1.3vw;
+  position: relative;
+}
+
+.gift_inner_top .right {
+  width: 37%;
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    width: 70%;
+
+    margin: 0 auto;
+    margin-top: 3em;
+  }
+
+  @include m {
+    width: 100%;
+    margin-top: 7vw;
+  }
+}
+
+.gift_inner_top .right .price {
+  font-size: 24px;
+  margin-top: 2.5vw;
+  @include m {
+    font-size: $moblie_h2;
+  }
+}
+
+.gift_inner_top .right .type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5vw;
+  font-size: 18px;
+  @include m {
+    font-size: $moblie_h3;
+  }
+}
+
+.gift_inner_top .right .count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1vw;
+}
+
+.gift_inner_top .right .count .text {
+  font-size: 18px;
+  @include m {
+    font-size: $moblie_h3;
+  }
+}
+
+.gift_inner_top .type .form-select {
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  width: min(15.6vw, 220px);
+  height: min(3.2vw, 50px);
+  border: 1px solid #333333;
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    width: 20.28vw;
+    height: 5.5vw;
+  }
+
+  @include m {
+    width: 32vw;
+    height: 8vw;
+    font-size: $moblie_h4;
+  }
+}
+
+.gift_inner_top .right .count input {
+  color: #000;
+  background-color: #fff;
+  width: min(15.6vw, 220px);
+  height: min(3.2vw, 50px);
+  border-radius: 4px;
+  border: 1px solid #333333;
+  padding-left: 0.7em;
+  outline: none;
+  /* 外框效果 */
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    width: 20.28vw;
+    height: 5.5vw;
+  }
+  @include m {
+    width: 32vw;
+    height: 8vw;
+    font-size: $moblie_h4;
+  }
+}
+.gift_inner_top .right .button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5.5vw;
+
+  @include m {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 7vw;
+  }
+}
+.gift_inner_top .right .button button a {
+  color: #fff;
+}
+.gift_inner_top .right .button button {
+  width: min(12vw, 140px);
+  height: min(3.65vw, 60px);
+  background-color: #932639;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  @media (min-width: 576px) and (max-width: 999.98px) {
+    width: 15.6vw;
+    height: 6vw;
+  }
+  @include m {
+    font-size: $moblie_h4;
+    width: 80vw;
+    height: 8vw;
+    margin-bottom: 1em;
+  }
+}
+
+.gift_inner_top .right h1 {
+  font-size: 24px;
+  color: #333333;
+  font-weight: bold;
+  padding-top: 0;
+  @include m {
+    font-size: $moblie_h2;
+  }
+}
+
+.gift_inner_top .right h2 {
+  font-size: 14px;
+  color: #932639;
+  margin-top: 2.5vw;
+  @include m {
+    font-size: $moblie_h4;
+  }
+}
+
+.gift_inner_top .left img {
+  max-width: 100%;
+}
+
+.gift_inner_top .left .photo_small img {
+  cursor: pointer;
+}
+
+//頁籤
+.gift_inner_wrap div.tab_container {
+  margin-top: 8vw;
+}
+
+/* 頁籤區塊 */
+.gift_inner_wrap .tab_container ul {
+  display: flex;
+  justify-content: center;
+  font-size: $h3;
+  list-style-type: none;
+  @include m {
+    font-size: $moblie_h3;
+    justify-content: space-around;
+  }
+}
+
+.gift_inner_wrap div.tab_container div.tab_list_block ul.tab_list > li > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #ccc;
+  margin: 0 5vw;
+  display: flex;
+
+  @include m {
+    margin: 0;
+  }
+}
+.gift_inner_wrap
+  div.tab_container
+  div.tab_list_block
+  ul.tab_list
+  > li
+  > a:hover
+  img {
+}
+
+.gift_inner_wrap
+  div.tab_container
+  div.tab_list_block
+  ul.tab_list
+  > li
+  > a:hover {
+  border-bottom: 2px solid $color_red;
+}
+.gift_inner_wrap
+  div.tab_container
+  div.tab_list_block
+  ul.tab_list
+  > li
+  > a:hover
+  .text {
+  color: $color_red;
+}
+.gift_inner_wrap .tab_list {
+  position: relative;
+}
+.gift_inner_wrap .tab_list .line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 1.6em;
+  height: 1px;
+  background-color: #ccc;
+  margin: auto;
+  z-index: 0;
+}
+
+.gift_inner_wrap .tab_list {
+  padding: 0;
+}
+.gift_inner_wrap .tab_list .text {
+  margin-left: 0.3em;
+  font-weight: bold;
+  padding: 0.09em 0;
+}
+
+.gift_inner_wrap div.tab_container div.tab_list_block ul.tab_list img {
+  width: 1.5em;
+}
+.gift_inner_wrap div.tab_container div.tab_list_block ul.tab_list > li > a.-on {
+  color: $color_red;
+  position: relative;
+  border-bottom: 2px solid $color_red;
+  z-index: 1;
+}
+
+/* 頁籤內容區塊 */
+.gift_inner_wrap div.tab_container div.tab_contents {
+  // border: 1px solid black;
+  margin-top: 4em;
+  padding: 0 6vw;
+  font-size: $h3;
+  @include m {
+    font-size: $moblie_h3;
+  }
+}
+
+.tab_contents .gift_inner_photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4vw;
+}
+.tab_contents .gift_inner_photo img {
+  max-width: 100%;
+  margin: 2vw 0vw;
+}
+.gift_inner_wrap div.tab_container div.tab_contents .black {
+  line-height: 2.2em;
+}
+
+.gift_inner_wrap div.tab_container div.tab_contents .gold {
+  color: $color_gold;
+  line-height: 2.2em;
+}
+.gift_inner_wrap div.tab_container div.tab_contents div.tab {
+  display: none;
+}
+
+.gift_inner_wrap div.tab_container div.tab_contents div.tab.-on {
+  display: block;
+}
+
+.youmaylike {
+  margin-top: 1.5vw;
+  margin-bottom: 4vw;
+  padding: 0 7.5vw;
+  width: 100%;
+}
+
+.youmaylike .text_top {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.youmaylike .text_top .left {
+  font-size: $h2;
+  font-weight: bold;
+  margin-right: 5em;
+}
+.youmaylike .text_top .right a {
+  color: $color_gold;
+}
+// ----------跑馬燈-------------
+
+.swiper_wrap .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_wrap .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fffcf7;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper_wrap .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper_wrap {
+  background-color: #fffcf7;
+  padding: 0 12vw;
+  margin-top: 4vw;
+  padding-bottom: 6vw;
+  @include ipad {
+    padding: 0 3vw;
+  }
+  @include m {
+    // padding: 0 4.5vw;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    padding-top: 3em;
+    .left {
+      font-size: $h3;
+      font-weight: bold;
+    }
+    .right {
+      font-size: $h4;
+      margin-top: 1.5em;
+      a {
+        text-decoration: underline;
+        color: $color_gold;
+      }
+    }
+  }
+  .swiper {
+    .swiper-wrapper {
+      .swiper-slide a {
+        display: flex;
+        flex-direction: column;
+        font-size: $h4;
+        color: $color_black;
+        img {
+          width: 183px;
+          margin-bottom: 1.5em;
+          @include ipad {
+            max-width: 100%;
+          }
+          @include m {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  // @include m {
+  //   transform: scale(0.4);
+  // }
+}
+
+.erh {
+  h4 {
+    margin-bottom: 1.2em;
+  }
+  hr {
+    margin: 2em 0;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+  }
+}

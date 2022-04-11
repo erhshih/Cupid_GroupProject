@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @@include('./layout/meta.html')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Cupid | 付款資訊</title>
+
+  <script>
+    function getCate(){    
+        $.ajax({            
+            method: "POST",
+            url: "./API/process03.php",
+            data:{},            
+            dataType: "json",
+            success: function (response) {                
+              display(response); 
+              console.log(response);
+              // alert(response);          
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+                // console.log(response);
+            }
+        });
+    }
+
+    function display(response){
+        // 更新html內容(透過jQuery跑迴圈取值)
+        console.log('111');
+        $.each(response, function(index, row) {
+
+      
+          var UpdateDate = row.UpdateDate == null ? "" : row.UpdateDate;
+
+          $("#phphphp").append(
+            
+             "<div class='p'>" +
+              "<div class='key'>訂單編號 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + '2021120111005566' + "</div>" +
+             "</div>" +
+             "<div class='p'>" +
+               "<div class='key'>訂單金額 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value' style='color: red'><span id='page'>" +row.order_totalmoney + "</span>元</div>" +
+             "</div>" +
+            "<div class='p'>" +
+               "<div class='key'>付款方式 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + row.order_paytype + "</div>" +
+             "</div>" +
+             "<hr class='line1' >" +
+             "<div class='p'>" +
+               "<div class='key'>收件大名 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + row.order_name + "</div>" +
+             "</div>" +
+
+            "<div class='p'>" +
+              "<div class='key'>聯繫電話 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.order_phone + "</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>收件地址 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.order_toaddress + "</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>配送方式 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.order_shiptype +"</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>訂單備註 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.order_remark + "</div>" +
+            "</div>" 
+            );
+        });
+    }    
+  </script>
+
+</head>
+
+<body onload="getCate()">
+  @@include('./layout/header.html')
+  <div class="process03_wrap">
+    <div class="top">
+      <div class="line"></div>
+      <div class="left">
+        <div class="circle">1</div>
+        <div class="text">
+          訂單資料
+        </div>
+      </div>
+      <div class="middle">
+        <div class="circle">2</div>
+        <div class="text">
+          付款資訊
+        </div>
+      </div>
+      <div class="right">
+        <div class="circle">3</div>
+        <div class="text">
+          完成訂單
+        </div>
+      </div>
+    </div>
+    <div class="top_text">
+      <img src="./images/cupid1.svg" alt="">
+      <h2>付款完成！！<br>感謝您在Cupid購物</h2>
+      <img src="./images/cupid1.svg" alt="" class="rotate">
+    </div>
+    <div class="remind">
+      <h2>Cupid提醒您</h2>
+      <p>我們絕不會在非上班時段去電，詐騙集團可透過軟體改來電顯示，假冒Cupid或銀行郵局來電諮詢。在Cupid購物絕無十二期分期付款，也無提供批發訂購，更不會要求您操作 ATM 解除分期付款。</p>
+    </div>
+    <div class="bottom">
+      <h2>商品收貨人資料</h2>
+      <div id="phphphp">
+        <!-- <div class="p">
+          <div class="key">訂單編號 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">2021120111005566</div>
+        </div>
+        <div class="p">
+          <div class="key">訂單金額 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value" style="color: red"><span id="page">0</span>元</div>
+        </div>
+        <div class="p">
+          <div class="key">付款方式 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">信用卡付款</div>
+        </div>
+        <hr class="line1" />
+        <div class="p">
+          <div class="key">收件大名 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">張政傑</div>
+        </div>
+
+        <div class="p">
+          <div class="key">聯繫電話 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">0912345678</div>
+        </div>
+        <div class="p">
+          <div class="key">收件地址 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">台北市中正區幸福路3號10樓之3</div>
+        </div>
+        <div class="p">
+          <div class="key">配送方式 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">黑貓宅急便</div>
+        </div>
+        <div class="p">
+          <div class="key">訂單備註 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">中午12點後收件</div>
+        </div> -->
+      </div>
+      <a class="btn_red" href="./index.html">回首頁</a>
+    </div>
+  </div>
+  @@include('./layout/footer.html')
+  <!-- <script>
+    //購物車
+    function doFirst() {
+      getCate()
+      let itemString = storage['addItemList'];
+      // 幫每個 Add Cart 建立事件聆聽
+      let list = document.querySelectorAll('.addButton');  //list 是陣列
+      console.log(list);
+      for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('click', function (e) {
+          // alert(e.target.id)
+          //alert(this.id)//都行
+          // let teddyInfo = document.querySelector(`#A1001 input`).value;//空格代表子孫選則器
+          // let teddyInfo = document.querySelector(`#A1001>input`).value;
+          let teddyInfo = document.querySelector(`#${this.id}>input`).value;
+          console.log(teddyInfo);
+          console.log(this.id);
+          addItem(this.id, teddyInfo);
+        });
+      }
+
+      if (!itemString) {
+        return false;
+      }
+      console.log(itemString);
+      let items = itemString.substr(0, itemString.length - 2).split(', ');
+      if (storage['addItemList'] == null) {
+        storage['addItemList'] = '';   // storage.setItem('addItemList','');
+      }
+      // totalPrice = 0;
+      // // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+      // for (let i = 0; i < items.length; i++) {
+      //   let itemInfo = storage.getItem(items[i]);
+      //   totalPrice += parseInt(itemInfo.split('|')[2]);
+      //   createCartList(items[i], itemInfo);
+      // }
+
+      document.getElementById('page').innerText = totalPrice + 150;
+
+    }
+
+    window.addEventListener('load', doFirst);
+
+
+
+
+  </script> -->
+</body>
+
+</html>
